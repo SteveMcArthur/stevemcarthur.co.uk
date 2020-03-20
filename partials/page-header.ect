@@ -1,0 +1,28 @@
+<header class="page-header">
+     <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <%if @layout == "contact.ect":%>
+                    <div class="post-heading text-center">
+                <%else:%>
+                    <div class="post-heading">
+                <%end%>                    
+                        <h1><%-@trueTitle or @title%></h1>
+                        <%if(@subtitle) : %>
+                        <h2 class="subheading"><%-@subtitle%></h2>
+                        <%end%>
+                        <%if @layout == "post.ect" && !@noMeta:%>
+                        <ul class="post-meta list-inline">
+					        <li class="list-inline-item"><span class="byline"><span class="author vcard"><i class="fa fa-user"></i><span class="screen-reader-text">Written by </span><%-@author || "Steve"%></span></span></li>
+                            <%if @date:%>
+                            <li class="list-inline-item"><span class="byline"><i class="far fa-clock"></i><%-@date.format('MMMM D, YYYY') %></span>
+                            <%end%>
+                            <li class="list-inline-item"><span class="cat-links"><a href="#" rel="category tag"><%-@category or "Uncategorized"%></a></span></li>
+				        </ul>
+                        <%end%>
+                    </div>
+      
+            </div> 
+        </div> 
+    </div> 
+</header>

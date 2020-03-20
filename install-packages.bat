@@ -1,0 +1,1 @@
+cmd.exe /k npm install --save metalsmith metalsmith-watch metalsmith-markdown metalsmith-layouts metalsmith-permalinks metalsmith-partial metalsmith-collections metalsmith-page-titles metalsmith-sitemap

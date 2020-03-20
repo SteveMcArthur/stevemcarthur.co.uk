@@ -1,0 +1,11 @@
+    <section class="py-5 portfolio">
+    <h2 class="section-header">Recent Projects</h2>
+      <div class="container">
+          <%portArr = @portfolio.slice(0,3)%>
+          <div class="row">
+            <%-@partial("portfolio-item.ect",{current: portArr[0]})%>
+            <%-@partial("portfolio-item.ect",{current: portArr[1]})%>
+            <%-@partial("portfolio-item.ect",{current: portArr[2]})%>        
+          </div>
+      </div>
+    </section>

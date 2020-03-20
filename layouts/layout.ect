@@ -1,0 +1,41 @@
+<%-@htmlHead()%>
+<body class="<%-@cls or ''%>">
+  <%-@partial("nav.ect")%>
+  <div class="page-content">
+    <%content%>
+  </div>
+  <%-@partial("footer.ect")%>
+  <div class="sidebar container">
+  <%-@partial("socials.ect")%>
+  </div>
+  <a id="back-to-top" href="#" class="">
+    <span>
+      <i class="fa fa-angle-up "></i>
+    </span>
+  </a>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/scripts.js"></script>
+  
+  <script src="/js/prism/prism.js"></script>
+  <script src="/js/prism/prism-javascript.js"></script>
+  <script src="/js/prism/prism-json.js"></script>
+  <script src="/js/prism/prism-visual-basic.js"></script>
+  <script src="/js/prism/prism-markup.js"></script>
+  <script src="/js/prism/prism-markup-templating.js"></script>
+  <script src="/js/prism/prism-handlebars.js"></script>
+  <script src="/js/prism/prism-coffeescript.js"></script>
+  <script src="/js/prism/prism-csharp.js"></script>
+<%if(@scripts):%>
+<%for script in @scripts:%>
+  <script src="<%-script%>"></script>
+<%end%>
+<%end%>
+  <%-@getCookieConsent()%>
+  </body>
+
+</html>
+
+

@@ -1,0 +1,46 @@
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container-fluid">   
+    <a class="navbar-brand" href="/">
+    <span><%-@site.title%></span>
+    </a>
+    <button title="Menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+      <%for key, val of @site.navItems:%>
+        <%if key == @key:%>
+        <li class="nav-item active">
+        <%else:%>
+        <li class="nav-item">
+        <%end%>
+          <a class="nav-link" href="<%-val%>"><%-key%>
+          <hr>
+          </a>
+          
+        </li>
+       <%end%>
+       <li class="nav-item sc">
+          <a class="nav-link"  href="https://twitter.com/stevemcarthur" title="Go to my Twitter account" aria-label="Go to my Twitter account">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="nav-item sc">
+          <a class="nav-link" href="https://github.com/SteveMcArthur" title="Go to my Github account" aria-label="Go to my Twitter account">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+        <li class="nav-item sc">
+          <a class="nav-link" href="https://stevemcarthur.slack.com" title="Visit me on Slack" aria-label="Visit me on Slack">
+            <i class="fab fa-slack"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

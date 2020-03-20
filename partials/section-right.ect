@@ -1,0 +1,22 @@
+<section class="section-right">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                <div class="text-holder">
+                    <h3><%-@current.title%></h3>
+                    <div class="content">
+                    <%-@getExcerpt(@current.contents,25)%>
+                    </div>
+                    <div class="btn-container">
+                    <a href="/<%-@current.path%>" class="btn btn-outline-dark" role="button" >Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                <figure>
+                    <img src="<%-@current.image%>">
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,22 @@
+<% extend 'layout.ect' %>
+<%-@partial("backgrounds/index-programming2.ect")%>
+<%-@partial("page-header.ect",{headerImg: "/img/blog-title-img2.jpg"})%>
+  <% postClass = if (@postClass) then "post-content "+ @postClass else "post-content"%>
+  <!-- Post Content -->
+  <article class="post contact">
+      <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="post-img">
+                <img class="img-fluid" src="<%-@image%>" alt="<%-@alt%>">
+              </div>
+              <div class="post-holder">
+                  <div class="<%-postClass%>">
+                      <%-@contents%>
+                      <%-@partial("contact-form.ect")%>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+  </article>

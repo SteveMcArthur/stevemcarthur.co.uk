@@ -1,0 +1,122 @@
+//out: ../src/css/navbar.css
+.navbar {
+    /*     height: 100px; */
+    font-weight: 500;
+    margin-bottom: -100px;
+    z-index: 25;
+    transition: background-color 0.5s ease;
+}
+
+.navbar.fixed-top {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .07);
+    /*     background-color: #fff !important; */
+}
+
+.navbar-collapse {
+    background-color: transparent;
+}
+
+.navbar-collapse.show,
+.navbar-collapse.collapsing {
+    text-align: center;
+    background-color: #fff !important;
+    margin: 0 -1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.navbar-collapse.show .navbar-nav,
+.navbar-collapse.collapsing .navbar-nav {
+    width: 100px;
+    margin: auto;
+}
+
+/* .navbar {
+    background-color: #fff;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        background-color: transparent;
+    }
+} */
+.navbar-brand img {
+    height: 2.125rem;
+}
+@media (min-width: 768px) {
+    .navbar-brand img {
+        height: 3.125rem;
+    }
+}
+
+.navbar a,
+.navbar a:hover {
+    //color: #fff;
+    color: #000;
+}
+
+.navbar.fixed-top a,
+.navbar.navbar.fixed-top a:hover,
+.home .navbar a,
+.home .navbar a:hover {
+    color: #000;
+}
+
+.navbar .nav-item hr {
+    width: 100%;
+    color: transparent;
+    margin: 0;
+    border-top: 2px solid transparent;
+}
+
+.navbar .nav-item.active hr,
+.navbar .nav-item a:hover hr {
+    border-top: 2px solid #000;
+}
+.navbar-toggler {
+    border: none;
+}
+
+.navbar .nav-item.sc {
+    font-size: 24px;
+    margin-top: -5px;
+}
+.navbar-toggler:hover,.navbar-toggler:focus, .navbar-toggler:active {
+    outline: none
+}
+.navbar-light .navbar-toggler-icon {
+    background-image: none;
+    background-color: #000;
+    position: relative;
+    width: 1.5rem;
+    height: 0.125rem;
+    outline: 0;
+    display: block;
+    border-radius: 1px;
+}
+.navbar .navbar-toggler .navbar-toggler-icon+.navbar-toggler-icon {
+    margin-top: 0.375rem;
+}
+/* .navbar .navbar-toggler .navbar-toggler-icon:nth-child(2) {
+    top: 0;
+    animation: g .5s 0s;
+    animation-fill-mode: forwards;
+}
+.navbar .navbar-toggler .navbar-toggler-icon:nth-child(3) {
+    opacity: 1;
+}
+.navbar .navbar-toggler .navbar-toggler-icon:nth-child(4) {
+    bottom: 0;
+    animation: i .5s 0s;
+    animation-fill-mode: forwards;
+} */
+.navbar-toggler {
+    -webkit-transition: -webkit-transform 0.5s;
+    -ms-transition: transform 0.5s;
+    transition: transform 0.5s;
+}
+.navbar-toggler:hover {
+    -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */
+  transform: rotate(90deg);
+}

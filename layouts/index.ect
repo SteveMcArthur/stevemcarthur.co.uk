@@ -1,0 +1,29 @@
+  <% extend 'layout.ect' %>
+  <%-@partial("backgrounds/index-programming2.ect")%>
+  <header class="home-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-8 col-sm-8 col-md-6 intro-cont">
+          <h1><%-@introText%></h1>
+          <div class="intro">
+            <%-@contents%>
+          </div>
+          <!--<button type="button" class="btn btn-outline-dark">Read More</button>-->
+        </div>
+        <div class="col-4 col-sm-4 col-md-6">
+   
+        </div>
+      </div>
+    </div>     
+  </header>
+
+  <!-- Content section -->
+  <div class="home-holder">
+  <%-@partial("portfolio.ect")%>
+  <%-@partial("features.ect")%>
+  <div class="section-header">
+    <h2>Latest Blog Posts</h2>
+  </div>
+  <%-@partial("section-left.ect",{current:@articles[0]})%>
+  <%-@partial("section-right.ect",{current:@articles[2]})%>
+  </div>

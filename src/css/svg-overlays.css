@@ -1,0 +1,52 @@
+.graphic-container {
+  position: absolute;
+  width: 100%;
+  height: 120vw;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.girl-overlay {
+  position: absolute;
+  height: 70%;
+  left: 60%;
+  bottom: 0;
+}
+.girl-overlay svg {
+  height: 100%;
+}
+.balloon-overlay {
+  position: absolute;
+  width: 20%;
+  top: 10%;
+  left: 40%;
+}
+.balloon-overlay svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  top: 0;
+}
+@media (min-width: 768px) {
+  .graphic-container {
+    width: 50vw;
+    height: 36rem;
+    top: 0;
+    left: 50%;
+  }
+  .girl-overlay {
+    height: 65%;
+    left: 30%;
+    top: 30%;
+  }
+  .balloon-overlay {
+    width: 14%;
+    top: 5%;
+    left: 10%;
+  }
+}
+@media all and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
+  .graphic-container {
+    height: 384px;
+  }
+}

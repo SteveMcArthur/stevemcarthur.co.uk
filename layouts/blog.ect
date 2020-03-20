@@ -1,0 +1,13 @@
+<% extend 'layout.ect' %>
+<%-@partial("blog-header.ect")%>
+<!-- Main Content -->
+<div class="container preview-cont">
+    <%startIndex = (@pagenum * @pagelen) - @pagelen%>
+    <%items = @getVisibleArticles().slice(startIndex,startIndex+@pagelen)%>          
+    <%for item in items:%>
+        <%- @partial('blog-excerpt.ect', {current: item}) %>
+    <%end%>
+    <%if @pageCount > 1:%>
+        <%-@partial("pagination.ect")%>
+    <%end%>
+</div>

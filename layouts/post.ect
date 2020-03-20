@@ -1,0 +1,34 @@
+<% extend 'layout.ect' %>
+<%if @showBackground:%>
+<%-@partial("backgrounds/index-programming2.ect")%>
+<%end%>
+<%-@partial("page-header.ect",{headerImg: "/img/blog-title-img2.jpg"})%>
+  <% postClass = if (@postClass) then "post-content blog-post "+ @postClass else "post-content blog-post"%>
+  <!-- Post Content -->
+  <article class="post">
+      <div class="container">
+          <div class="row">
+            <div class="col-12">
+            <div class="post-img">
+                <img class="img-fluid" src="<%-@image%>" alt="<%-@alt%>">
+            </div>
+            <div class="post-holder">
+              <div class="<%-postClass%>">
+                  <%-@contents%>
+              </div>
+              </div>
+            </div>
+          </div>
+          <%if !@noComments:%>
+          <!-- Comments -->
+          <div class="row">
+              <div class="col-12">
+                  <div id="comments" class="clearfix">
+                      <%-@partial('disqus.ect')%>
+                  </div>
+              </div>
+          </div>
+          <!-- #comments end -->
+          <%end%>
+      </div>
+  </article>

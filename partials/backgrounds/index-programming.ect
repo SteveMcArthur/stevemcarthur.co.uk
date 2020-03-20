@@ -1,0 +1,39 @@
+  <div class="background index programming">
+      <div class="overlay svg1">
+          <%-@partial("svg/nodejs.ect")%>
+      </div>
+      <div class="overlay svg2">
+        <%-@partial("svg/rect-500.ect")%>       
+      </div>
+      <div class="overlay svg3">
+          <%-@partial("svg/c-sharp.ect",{filled:true})%>    
+      </div>
+      <div class="overlay svg4">       
+        <%-@partial("svg/circle-500.ect")%>
+      </div>
+      <div class="overlay svg5">       
+        <%-@partial("svg/circle-500.ect")%>
+      </div>
+      <div class="overlay svg6">       
+        <%-@partial("svg/sqlserver.ect")%>
+      </div>
+      <div class="overlay svg7">       
+        <%-@partial("svg/circle-500.ect")%>
+      </div>
+      <div class="overlay svg8">       
+        <%-@partial("svg/circle-500.ect")%>
+      </div>
+      <div class="overlay svg9">       
+        <%-@partial("svg/circle-500.ect")%>
+      </div>
+      <%if @balloon:%>
+      <div class="graphic-container">
+        <div class="balloon-overlay">
+          <%-@partial("svg/balloon.ect")%>
+        </div>
+        <div class="girl-overlay">
+          <%-@partial("svg/banksy-girl.ect")%>
+        </div>
+      </div>
+      <%end%>
+  </div>

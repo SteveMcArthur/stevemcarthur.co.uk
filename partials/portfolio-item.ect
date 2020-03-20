@@ -1,0 +1,18 @@
+<div class="col-xs-12 col-sm-12 col-md-4">
+    <article class="portfolio-item">
+      <figure>
+        <img src="<%-if @current then @current.img%>" alt="<%-@current.alt%>"/>
+      </figure>
+      <div class="text-overlay">
+        <div class="text-wrapper">
+          <div class="title-holder">
+            <h4><%-if @current then @current.title%></h4>
+          </div>
+          <div class="text-content">
+              <%-if @current then @current.contents%>              
+          </div>
+          <a href="<%-@current.link%>" class="btn btn-sm btn-outline-light" role="button" >Visit Website</a>
+        </div>
+      </div>
+    </article>
+</div>
