@@ -10,8 +10,19 @@ var sitemap = require("metalsmith-sitemap");
 var drafts = require('metalsmith-drafts');
 var msMoment = require("metalsmith-moment");
 var seo = require("./plugins/metalsmith-seo");
+const gulp = require("gulp");
+var path = require("path");
 var fs = require("fs");
 var util = require("util");
+
+let buildDir = "../build";
+
+function copyAssets() {
+    let dest = path.resolve(__dirname, buildDir);
+    console.log("copy assets to " + dest);
+    gulp.src(['assets/**/*']).pipe(gulp.dest(dest));
+    console.log("assets copied...");
+}
 
 
 metalsmith(__dirname)
@@ -64,7 +75,7 @@ metalsmith(__dirname)
     })
     .use(pageTitles())
     .source("./src")
-    .destination("../build")
+    .destination(buildDir)
     .use(collections({
         articles: {
             pattern: 'blog/post/*.md',
@@ -88,7 +99,7 @@ metalsmith(__dirname)
         }
 
     }))
-    .clean(false)
+    .clean(true)
     .use(msMoment(["date"]))
     .use(drafts())
     .use(markdown())
@@ -165,4 +176,5 @@ metalsmith(__dirname)
             throw err;
         }
         console.log("Build completed without error...");
+        copyAssets();
     });

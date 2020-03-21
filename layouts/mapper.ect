@@ -1,9 +1,20 @@
 <% extend 'layout.ect' %>
-<header class="page-header pt-5">
+<header class="page-header pt-6">
      <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1><%-@trueTitle or @title%></h1>
+                <div class="post-heading">
+                    <h1><%-@trueTitle or @title%></h1>
+                    <%if !@noMeta:%>
+                        <ul class="post-meta list-inline">
+					        <li class="list-inline-item"><span class="byline"><span class="author vcard"><i class="fa fa-user"></i><span class="screen-reader-text">Written by </span><%-@author || "Steve"%></span></span></li>
+                            <%if @date:%>
+                            <li class="list-inline-item"><span class="byline"><i class="far fa-clock"></i><%-@date.format('MMMM D, YYYY') %></span>
+                            <%end%>
+                            <li class="list-inline-item"><span class="cat-links"><a href="#" rel="category tag"><%-@category or "Uncategorized"%></a></span></li>
+				        </ul>
+                    <%end%>
+                </div>
             </div> 
         </div> 
     </div> 
@@ -14,10 +25,17 @@
       <div class="container">
           <div class="row">
             <div class="col-12">
-            <div class="post-holder">
-              <div class="mapper">
-                  <%-@contents%>
-              </div>
+                <div class="mapper">
+                    <div class="map-container">
+                        <div id="map">
+                        </div>
+                    </div>           
+                </div>
+                <div class="post-holder">
+                    <div class="post-content blog-post">
+                    <%-@contents%>
+                    </div>
+
               </div>
             </div>
           </div>
