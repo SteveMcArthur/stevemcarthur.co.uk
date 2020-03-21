@@ -1,0 +1,36 @@
+<% extend 'layout.ect' %>
+<header class="page-header pt-5">
+     <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1><%-@trueTitle or @title%></h1>
+            </div> 
+        </div> 
+    </div> 
+</header>
+
+  <!-- Post Content -->
+  <article class="post">
+      <div class="container">
+          <div class="row">
+            <div class="col-12">
+            <div class="post-holder">
+              <div class="mapper">
+                  <%-@contents%>
+              </div>
+              </div>
+            </div>
+          </div>
+          <%if !@noComments:%>
+          <!-- Comments -->
+          <div class="row">
+              <div class="col-12">
+                  <div id="comments" class="clearfix">
+                      <%-@partial('disqus.ect')%>
+                  </div>
+              </div>
+          </div>
+          <!-- #comments end -->
+          <%end%>
+      </div>
+  </article>

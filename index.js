@@ -65,18 +65,6 @@ metalsmith(__dirname)
     .use(pageTitles())
     .source("./src")
     .destination("../build")
-    
-    //this is a fix for metalsmith-collections
-    //with metalsmith-watch to clear out the
-    //collections when reloading
-    .use(function (files, metalsmith, done) {
-        metalsmith._metadata.collections = null;
-        metalsmith._metadata.articles = null;
-        metalsmith._metadata.services = null;
-        metalsmith._metadata.portfolio = null;
-        metalsmith._metadata.rootPages = null;
-        done()
-    })
     .use(collections({
         articles: {
             pattern: 'blog/post/*.md',
