@@ -15,6 +15,7 @@ pre[class*="language-"] {
     box-shadow: none;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    line-height: 1.25rem;
 }
 code[class*="language-"]{
   font-size: 1rem;
@@ -89,4 +90,12 @@ blockquote,
 .source {
   background-color: @blockQuote;
   border-left: 8px solid #ccc;
+}
+
+@media (min-width: 768px) {
+  pre[class*="language-"] {
+    line-height: 2rem;
+  }
+
+
 }

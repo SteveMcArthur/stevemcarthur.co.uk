@@ -4,6 +4,7 @@ pre[class*="language-"] {
   box-shadow: none;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  line-height: 1.25rem;
 }
 code[class*="language-"] {
   font-size: 1rem;
@@ -75,7 +76,8 @@ blockquote,
   background-color: #eee;
   border-left: 8px solid #ccc;
 }
-
-pre[class*="language-"] {
-  line-height: 2;
+@media (min-width: 768px) {
+  pre[class*="language-"] {
+    line-height: 2rem;
+  }
 }

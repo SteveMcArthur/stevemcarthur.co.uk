@@ -1,4 +1,4 @@
-<%-@htmlHead()%>
+<%-@partial("html-head.ect")%>
 <body class="<%-@cls or ''%>">
   <%-@partial("nav.ect")%>
   <div class="page-content">
@@ -15,26 +15,51 @@
   </a>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/bootstrap.bundle.min.js"></script>
+ <script>
+  <%-@partial("jquery-inline.ect")%>
+ </script>
+ <script>
+  <%-@partial("bootstrap-bundle.ect")%>
+ </script>
+
   <script src="/js/scripts.js"></script>
-  
-  <script src="/js/prism/prism.js"></script>
-  <script src="/js/prism/prism-javascript.js"></script>
-  <script src="/js/prism/prism-json.js"></script>
-  <script src="/js/prism/prism-visual-basic.js"></script>
-  <script src="/js/prism/prism-markup.js"></script>
-  <script src="/js/prism/prism-markup-templating.js"></script>
-  <script src="/js/prism/prism-handlebars.js"></script>
-  <script src="/js/prism/prism-coffeescript.js"></script>
-  <script src="/js/prism/prism-csharp.js"></script>
+  <script src="/js/prism-custom.min.js"></script>
+
 <%if(@scripts):%>
 <%for script in @scripts:%>
   <script src="<%-script%>"></script>
 <%end%>
 <%end%>
-  <%-@getCookieConsent()%>
-  </body>
+<%if @cookieConsent:%>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                    "background": "#32949D"
+                    },
+                    "button": {
+                    "background": "#65c7d0"
+                    }
+                },
+                "content": {
+                    "href": "/privacy/"
+                }
+            });
+        });
+    </script>
+    <style>
+    .cc-window.cc-banner, .cc-window {
+        width: 98% !important;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    
+    </style>
+<%end%>
+</body>
 
 </html>
 

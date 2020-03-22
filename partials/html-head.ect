@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="<%-@description%>">
+<%if @author:%>
+    <meta name="author" content="<%-@author%>">
+<%end%>
+    <title><%-@pageTitle%></title>
+<%if @site.gaID and !@disableAnalytics:%>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%-@site.gaID%>"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', '<%-@site.gaID%>');
+    </script>
+<%end%>
+
+    <!-- Twitter Card data -->
+<%if @twitter_product:%>
+    <meta name="twitter:card" content="<%-@twitter_product%>">
+<%end%>
+<%if @twitter_publisher_handle:%>
+    <meta name="twitter:site" content="<%-@twitter_publisher_handle%>">
+<%end%>
+<%if @twitter_title:%>
+    <meta name="twitter:title" content="<%-@twitter_title%>">
+<%end%>
+<%if @twitter_desc:%>
+    <meta name="twitter:description" content="<%-@twitter_desc%>">
+<%end%>
+<%if @twitter_author_handle:%>
+    <meta name="twitter:creator" content="<%-@twitter_author_handle%>">
+<%end%>
+<%if @fullimage:%>
+    <meta name="twitter:image" content="<%-@fullimage%>">
+<%end%>
+<%if @twitter_data1:%>
+    <meta name="twitter:data1" content="<%-@twitter_data1%>">
+<%end%>
+<%if @twitter_label1:%>
+    <meta name="twitter:label1" content="<%-@twitter_label1%>">
+<%end%>
+<%if @twitter_data2:%>
+    <meta name="twitter:data2" content="<%twitter_data2%>">
+<%end%>
+<%if @twitter_label2:%>
+    <meta name="twitter:label2" content="<%-@twitter_label2%>">
+<%end%>
+
+    <!-- Open Graph data -->
+<%if @og_title:%>
+    <meta property="og:title" content="<%-@og_title%>">
+<%end%>
+<%if @type:%>
+    <meta property="og:type" content="<%-@type%>">
+<%end%>
+<%if @url:%>
+    <meta property="og:url" content="<%-@url%>">
+<%end%>
+<%if @fullimage:%>
+    <meta property="og:image" content="<%-@fullimage%>">
+<%end%>
+<%if @og_desc:%>
+    <meta property="og:description" content="<%-@og_desc%>">
+<%end%>
+<%if @site_name:%>
+    <meta property="og:site_name" content="<%-@site_name%>">
+<%end%>
+<%if @price:%>
+    <meta property="og:price:amount" content="<%-@price%>">
+<%end%>
+<%if @currency:%>
+    <meta property="og:price:currency" content="<%-@currency%>">
+<%end%>
+<%if @url:%>
+    <link href="<%-@url%>" rel="canonical">
+<%end%>
+
+    <!--icons-->
+    <link rel="icon" href="<%-@favicon%>">
+    <%if @icons:%>
+    <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/icons/manifest.json">
+    <meta name="msapplication-TileColor" content="<%-@themeColor%>">
+    <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="<%-@themeColor%>">
+    <%end%>
+<%if @dev:%>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,700|Montserrat+Alternates:400,700" rel="stylesheet"> 
+    <link href="/css/bootstrap.css" rel="stylesheet"> 
+    <link href="/css/base.css" rel="stylesheet"> 
+    <link href="/css/typography.css" rel="stylesheet"> 
+    <link href="/css/socials.css" rel="stylesheet"> 
+    <link href="/css/navbar.css" rel="stylesheet"> 
+    <link href="/css/header.css" rel="stylesheet"> 
+    <link href="/css/page.css" rel="stylesheet"> 
+    <link href="/css/footer.css" rel="stylesheet"> 
+    <link href="/css/home.css" rel="stylesheet"> 
+    <link href="/css/svg-overlays.css" rel="stylesheet"> 
+    <link href="/css/post-img.css" rel="stylesheet"> 
+    <link href="/css/post.css" rel="stylesheet"> 
+    <link href="/css/svg-backgrounds.css" rel="stylesheet"> 
+    <link href="/font-awesome/css/all.css" rel="stylesheet"> 
+    <link href="/css/prism-vscode.css" rel="stylesheet"> 
+    <link href="/css/vb.css" rel="stylesheet"> 
+    <link href="/css/prism-headers.css" rel="stylesheet"> 
+    <link href="/css/mapping.css" rel="stylesheet"> 
+<%else:%>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,700|Montserrat+Alternates:400,700" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet"> 
+    <link href="/font-awesome/css/all.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+<%end%>
+<%if @styles:%>
+<%for style in @styles:%>
+    <link href="<%-style%>" rel="stylesheet">
+<%end%>
+<%end%>
+<%if @structuredData:%>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "<%-@url%>"
+  },
+  "headline": "<%-@title%>",
+  "description": "<%-@description%>",
+  <%if @imgliststr:%>
+  "image": [
+       <%-@imgliststr%>
+       ],
+  <%else:%>
+  "image": {
+    "@type": "ImageObject",
+    "url": "<%-@image%>"
+  },
+  <%end%>
+  "author": {
+    "@type": "Organization",
+    "name": "<%-@organization or @site.organization%>"
+  },  
+  "publisher": {
+    "@type": "Organization",
+    "name": "<%-@organization or @site.organization%>",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "<%-@logo or @site.logo%>",
+      "width": <%-@logoWidth or @site.logoWidth%> ,
+      "height":  <%-@logoHeight or @site.logoWidth%> 
+    }
+  },
+  "datePublished": "<%-@getFormatDate("pubdate")%>",
+  "dateModified": "<%-@getFormatDate("update")%>"
+}
+</script>
+<%end%>
+</head>

@@ -9,13 +9,35 @@ var pageTitles = require("metalsmith-page-titles");
 var sitemap = require("metalsmith-sitemap");
 var drafts = require('metalsmith-drafts');
 var msMoment = require("metalsmith-moment");
-var seo = require("./plugins/metalsmith-seo");
+var seo = require("./plugins/metalsmith-head");
 const gulp = require("gulp");
 var path = require("path");
 var fs = require("fs");
 var util = require("util");
 
+const meta = require("./metadata.js");
+
+function donothing(options) {
+    return function (files, metalsmith, done) {
+        setImmediate(done);
+        console.log("do nothing...");
+    }
+}
+let TESTCONFIG = true;
 let buildDir = "../build";
+
+if (TESTCONFIG) {
+    console.log("Test Config running");
+    meta.disableAnalytics = true;
+    meta.dev = true;
+    buildDir = "../build-test";
+    console.log("anaytics disabled");
+} else {
+    console.log("Live Config running");
+    meta.disableAnalytics = false;
+    meta.dev = false;
+    console.log("anaytics Active");
+}
 
 function copyAssets() {
     let dest = path.resolve(__dirname, buildDir);
@@ -26,53 +48,7 @@ function copyAssets() {
 
 
 metalsmith(__dirname)
-    .metadata({
-        site: {
-            title: "Steve McArthur",
-            brand1: "Steve",
-            brand2: "McArthur",
-            subtitle: "Steve McArthur Developer",
-            email: "contact@stevemcarthur.co.uk",
-            tel: "",
-            description: "Hi, my name is Steve. I create beautiful & functional websites for small businesses.",
-            keywords: "Steve McArthur, Stephen McArthur, web developer, web designer",
-            author: "Steve McArthur",
-            generator: "Metalsmith",
-            url: "https://www.stevemcarthur.co.uk",
-            gaID: "UA-59463797-1",
-            year: (new Date()).getFullYear(),
-            navItems: {
-                Home: "/",
-                About: "/about",
-                Blog: "/blog",
-                Contact: "/contact"
-            }
-        }, 
-        getArticle: function(field,value){
-            var article = this.articles.find(function(item){
-                return item[field] == value;
-            });
-            return article;
-        },
-        getRootPage: function(field,value){
-            var page = this.rootPages.find(function(item){
-                return item[field] == value;
-            });
-            return page;
-        },
-        getVisibleArticles: function(){
-            var arr = this.articles.filter(function(item){
-                return !item.hide;
-            });
-            return arr;
-        },       
-        writeObject: function(obj,name){
-            name = name || "obj.json";
-            name = "./json/"+name;
-            fs.writeFileSync(name,util.inspect(obj,true,4),'utf-8');
-        }
- 
-    })
+    .metadata(meta)
     .use(pageTitles())
     .source("./src")
     .destination(buildDir)
@@ -110,36 +86,8 @@ metalsmith(__dirname)
         defaultAuthor: "Steve McArthur",
         defaultImage: "/img/code-header.jpg",
         cookieConsent: true,
-        dev: false,
-        styles: [
-            "https://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,700|Montserrat+Alternates:400,700",
-            "/css/bootstrap.css", 
-            "/css/styles.css",
-            "/font-awesome/css/all.css",
-            "/css/prism-vscode.css",
-            "/css/vb.css",
-            "/css/prism-headers.css"
-        ],
-        devStyles: [
-            "https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,700|Montserrat+Alternates:400,700",
-            "/css/bootstrap.css",
-            "/css/base.css",
-            "/css/typography.css",
-            "/css/socials.css",
-            "/css/navbar.css",
-            "/css/header.css",
-            "/css/page.css",
-            "/css/footer.css",
-            "/css/home.css",
-            "/css/svg-overlays.css",
-            "/css/post-img.css",
-            "/css/post.css",
-            "/css/svg-backgrounds.css",
-            "/font-awesome/css/all.css",
-            "/css/prism-vscode.css",
-            "/css/vb.css",
-            "/css/prism-headers.css"
-        ]
+        icons: true,
+        themeColor: "#000"
     }))
     .use(partial({
         directory: "./partials",
