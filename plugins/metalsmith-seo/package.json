@@ -10,7 +10,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "handlebars": "^4.0.12",
+    "handlebars": "^4.5.3",
     "truncate-html": "^1.0.1"
   }
 }
