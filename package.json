@@ -35,6 +35,8 @@
     "metalsmith-permalinks": "^2.2.0",
     "metalsmith-sitemap": "^1.2.2",
     "metalsmith-watch": "^1.0.3",
-    "truncate-html": "^1.0.3"
+    "opencage-api-client": "^0.7.1",
+    "truncate-html": "^1.0.3",
+    "unirest": "^0.6.0"
   }
 }

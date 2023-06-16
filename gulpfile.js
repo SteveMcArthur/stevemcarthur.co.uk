@@ -1,5 +1,5 @@
-let buildDir =  "../build-test";
-//let buildDir =  "../build";
+//let buildDir =  "../build-test";
+let buildDir =  "../build";
 
 function defaultTask(cb) {
     const gulp = require('gulp');

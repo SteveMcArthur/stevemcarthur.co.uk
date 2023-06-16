@@ -104,9 +104,12 @@
     <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="<%-@themeColor%>">
     <%end%>
+    <!--bootstrap-->
+    <style >
+        <%-@partial("bootstrap4-css.ect")%>
+    </style >
 <%if @dev:%>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,700|Montserrat+Alternates:400,700" rel="stylesheet"> 
-    <link href="/css/bootstrap.css" rel="stylesheet"> 
     <link href="/css/base.css" rel="stylesheet"> 
     <link href="/css/typography.css" rel="stylesheet"> 
     <link href="/css/socials.css" rel="stylesheet"> 
@@ -126,7 +129,6 @@
     <link href="/css/mapping.css" rel="stylesheet"> 
 <%else:%>
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,700|Montserrat+Alternates:400,700" rel="stylesheet">
-    <link href="/css/bootstrap.css" rel="stylesheet"> 
     <link href="/font-awesome/css/all.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
 <%end%>

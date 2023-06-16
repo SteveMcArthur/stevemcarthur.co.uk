@@ -41,7 +41,7 @@ To put some sort of marker on the map indicating where a coronavirus outbreak ha
 
 ![Rapid API](/img/rapidapi.jpg)
 
-This is what I used for the virus data. Whilst the [WHO](https://www.who.int/) does have some sort of data feed, I thought it simpler to just go to [RapidAPI](https://rapidapi.com/). The source of their data does come from WHO, I just thought it would be easier to set up.
+This is what I used for the virus data. Whilst the [WHO](https://www.who.int/) does have some sort of data feed, I couldn't find a Coronavirus feed. So I thought it simpler to just go to [RapidAPI](https://rapidapi.com/). The source of their data comes from the John Hopkins University, in particular their GitHub repository at [https://github.com/CSSEGISandData/COVID-19](https://github.com/CSSEGISandData/COVID-19).
 
 Once you sign up for an API key at [https://rapidapi.com/](https://rapidapi.com/), you just make a call to the API url and it returns the data in the following format: 
 
@@ -79,6 +79,23 @@ let url = "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats";
 $.ajax(url,opts).done(function (data, status) {
     //do something with the returned data
 });
+```
+
+In PHP it would be something like this:
+
+```php
+$curl_h = curl_init("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats");
+
+curl_setopt($curl_h, CURLOPT_HTTPHEADER,
+    array(
+        "x-rapidapi-host: covid-19-coronavirus-statistics.p.rapidapi.com",
+        "x-rapidapi-key: YOUR-API-KEY"
+    )
+);
+
+curl_setopt($curl_h, CURLOPT_RETURNTRANSFER, true);
+
+$response = curl_exec($curl_h);
 ```
 
 ## Geocoding: OpenCage

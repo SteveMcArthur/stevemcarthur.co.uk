@@ -23,7 +23,7 @@ function donothing(options) {
         console.log("do nothing...");
     }
 }
-let TESTCONFIG = true;
+let TESTCONFIG = false;
 let buildDir = "../build";
 
 if (TESTCONFIG) {
